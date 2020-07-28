@@ -2,7 +2,7 @@
 
 This is a Python program that finds a solution for a given sudoku.
 The sudoku is loaded from a text file "sudoku.txt" where entries are delimited by spaces, empty squares are represented by 0 (zero); an example is the following:
-0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0\
 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0
