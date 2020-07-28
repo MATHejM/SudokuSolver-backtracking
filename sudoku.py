@@ -78,35 +78,36 @@ def Solve(row,column):
                 return True
 
 # Loading the sudoku in 2-dimensional list "sudoku" by rows, in each row, numbers are delimited by spaces, empty squares represented by 0 (zero)
-a = open("sudoku.txt","r")
-f = a.readlines()
-sudoku = []
-for line in f:
-    sudoku.append(line.strip())
-a.close()
-for i in range(9):
-    sudoku[i] = sudoku[i].split(" ")
-for i in range(9):
-    for j in range(9):
-        sudoku[i][j] = int(sudoku[i][j])
+if __name__ == '__main__':
+    a = open("sudoku.txt","r")
+    f = a.readlines()
+    sudoku = []
+    for line in f:
+        sudoku.append(line.strip())
+    a.close()
+    for i in range(9):
+        sudoku[i] = sudoku[i].split(" ")
+    for i in range(9):
+        for j in range(9):
+            sudoku[i][j] = int(sudoku[i][j])
 
-# Checking if the sudoku is solvable
-if (not Solvable()):
-    file = open("sudoku.txt", "a")
-    file.write("\nSudoku is not solvable.\n")
-    file.close()
-else:
-    # Solving the sudoku
-    if (not Solve(0, 0)):
+    # Checking if the sudoku is solvable
+    if (not Solvable()):
         file = open("sudoku.txt", "a")
         file.write("\nSudoku is not solvable.\n")
         file.close()
-
     else:
-        file = open("sudoku.txt","a")
-        file.write("\nHere is one possible solution: \n")
-        for i in range(9):
-            file.write(str(sudoku[i])+"\n")
-        file.close()
+        # Solving the sudoku
+        if (not Solve(0, 0)):
+            file = open("sudoku.txt", "a")
+            file.write("\nSudoku is not solvable.\n")
+            file.close()
+
+        else:
+            file = open("sudoku.txt","a")
+            file.write("\nHere is one possible solution: \n")
+            for i in range(9):
+                file.write(str(sudoku[i])+"\n")
+            file.close()
 
 
